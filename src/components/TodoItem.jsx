@@ -22,7 +22,6 @@ var TodoItem = React.createClass({
             'completed': this.props.isCompleted,
             'editing': this.props.isEditing
         });
-        console.log(this.props.isCompleted);
         return(
             <li className = {itemClass}>
                 <div className = "view">

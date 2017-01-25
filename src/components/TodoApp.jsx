@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from '../action_creators';
 import TodoList from './TodoList';
 import TodoHeader from './TodoHeader';
 import TodoFooter from './TodoFooter';
@@ -7,19 +9,19 @@ var TodoApp = React.createClass({
     getNActiveItems: function(){
         if(this.props.todos){
             const activeItems = this.props.todos.filter(function(item){
-                item.get('status') === 'active';
+                return item.get('status') === 'active';
             }.bind(this));
-            return actriveItems.size;
+            return activeItems.size;
         }
         return 0;
     },
     render: function(){
         return (
             <div>
-                <section className = 'todoApp'>
+                <section className = 'todoapp'>
                     <TodoHeader />
-                    <TodoList todos = {this.props.todos} filter = {this.props.filter}/>
-                    <TodoTools filter = {this.props.filter} nActiveItems = {this.getNActiveItems}/>
+                    <TodoList {...this.props}/>
+                    <TodoTools filter = {this.props.filter} nActiveItems = {this.getNActiveItems()} changeFilter = {this.props.changeFilter}/>
                 </section>
                 <TodoFooter />
             </div>
@@ -28,3 +30,12 @@ var TodoApp = React.createClass({
 });
 
 export default TodoApp;
+
+function mapStateToProps(state){
+    return {
+        todos: state.get('todos'),
+        filter: state.get('filter')
+    };
+};
+
+export const TodoAppContainer = connect(mapStateToProps, actionCreators)(TodoApp);

@@ -20,12 +20,13 @@ var TodoTools = React.createClass({
         this.props.changeFilter('active');
     },
     changeFilterToCompleted: function(){
-        this.props.changeFilter('Completed');
+        this.props.changeFilter('completed');
     },
     render: function(){
         return (
             <footer className = 'footer'>
                 <span className = 'todo-count'>
+                {console.log(this.getNItemsLeft())}
                     <strong>{this.getNItemsLeft()}</strong> items left
                 </span>
                 <ul className = 'filters'>
