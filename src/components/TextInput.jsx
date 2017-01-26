@@ -11,11 +11,11 @@ var TextInput = React.createClass({
             case 'Enter':
                 return this.props.doneEditing(this.props.itemId, this.state.value);
             case 'Escape':
-                return this.cancelEditing(this.props.itemId);
+                return this.cancelEditing();
         };
     },
     handleOnBlur: function(evt){
-        return this.cancelEditing(this.props.itemId);
+        return this.cancelEditing();
     },
     handleOnChange: function(evt){
         this.setState({value: evt.target.value});

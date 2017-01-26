@@ -31,7 +31,7 @@ var TodoItem = React.createClass({
                     </label>
                     <button className="destroy" onClick = {this.deleteItem}></button>
                 </div>
-                <TextInput text = {this.props.text} itemId = {this.props.itemId} 
+                <TextInput text = {this.props.text} itemId = {this.props.id} 
                 cancelEditing = {this.props.cancelEditing} doneEditing = {this.props.doneEditing}/>
             </li>
         )

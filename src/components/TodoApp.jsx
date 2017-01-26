@@ -19,9 +19,10 @@ var TodoApp = React.createClass({
         return (
             <div>
                 <section className = 'todoapp'>
-                    <TodoHeader />
+                    <TodoHeader addItem = {this.props.addItem} />
                     <TodoList {...this.props}/>
-                    <TodoTools filter = {this.props.filter} nActiveItems = {this.getNActiveItems()} changeFilter = {this.props.changeFilter}/>
+                    <TodoTools filter = {this.props.filter} nActiveItems = {this.getNActiveItems()} 
+                    changeFilter = {this.props.changeFilter} clearCompleted = {this.props.clearCompleted}/>
                 </section>
                 <TodoFooter />
             </div>

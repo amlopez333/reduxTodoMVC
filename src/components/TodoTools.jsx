@@ -26,7 +26,6 @@ var TodoTools = React.createClass({
         return (
             <footer className = 'footer'>
                 <span className = 'todo-count'>
-                {console.log(this.getNItemsLeft())}
                     <strong>{this.getNItemsLeft()}</strong> items left
                 </span>
                 <ul className = 'filters'>
